@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* No seu arquivo CSS global */
+.body-dark-theme {
+  background-color: #333;
+  color: white;
+}
