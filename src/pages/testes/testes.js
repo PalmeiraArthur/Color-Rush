@@ -36,29 +36,28 @@ const generateColorsAndCorrectIndex = (level, baseColor) => {
 };
 
 const Ball = ({ color, onClick, isDifferent }) => {
-    return (
-      <div
-        onClick={onClick}
-        style={{
-          width: '50px',
-          height: '50px',
-          backgroundColor: color,
-          borderRadius: '50%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: '5px',
-          cursor: 'pointer',
-          color: 'white',
-          fontSize: '20px',
-          fontWeight: 'bold',
-          border: 'none',
-        }}
-      >
-        {isDifferent ? 'C' : ''}
-      </div>
-    );
-  };
+  return (
+    <div
+      onClick={onClick}
+      style={{
+        width: '82px', // Aumenta a largura da bolinha
+        height: '82px', // Aumenta a altura da bolinha
+        backgroundColor: color,
+        borderRadius: '50%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '10px', // Aumenta o espaço entre as bolinhas
+        cursor: 'pointer',
+        color: 'white',
+        fontSize: '24px', // Aumenta o tamanho da fonte se houver texto dentro das bolinhas
+        fontWeight: 'bold',
+      }}
+    >
+      {isDifferent ? 'C' : ''}
+    </div>
+  );
+};
 
 const Game = () => {
   const [colors, setColors] = useState([]);
@@ -86,25 +85,6 @@ const Game = () => {
     setDarkTheme(!darkTheme);
   };
   
-  const iconStyle = {
-    position: 'absolute', // Posiciona o ícone absolutamente em relação ao seu pai relativo mais próximo
-    top: 10, // Alinha o topo do ícone com o topo do contêiner do texto
-    left: 0, // Alinha o lado esquerdo do ícone com o lado esquerdo do contêiner do texto
-    height: '100%', // Opcional: ajusta a altura do ícone conforme necessário
-  };
-  const scoreStyle = {
-    position: 'relative', // Define o texto "Pontuação" como referência para o posicionamento absoluto
-    color: darkTheme ? 'white' : 'black',
-  };
-
-
-  const buttonStyle = {
-    cursor: 'pointer',
-    background: 'none',
-    border: 'none',
-    outline: 'none',
-    padding: '10px',
-  };
 
   const handleBallClick = (index) => {
     if (index === correctIndex) {
@@ -115,35 +95,72 @@ const Game = () => {
     }
   };
 
+  // Estilo centralizado para todos os elementos
+  const commonCenterStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    minHeight: '100vh',
+    marginBottom: '0pxpx',
+    marginTop: '0px'
+  };
+
+  // Estilo para as logos
+  const logoStyle = {
+    position: 'absolute', // Posiciona a logo de forma absoluta em relação ao viewport
+    top: 35, // Coloca a logo no topo da tela
+    left: '50%', // Centraliza a logo horizontalmente
+    transform: 'translateX(-50%)', // Ajusta a centralização horizontal
+    width: '260px', // Largura da logo
+    objectFit: 'contain',
+    zIndex: 1000, // Garante que a logo fique sobre outros elementos
+  };
+
+  // Estilo para o contêiner das bolinhas
   const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    maxWidth: '150px', // Limita a largura para forçar duas colunas
+    maxWidth: '208px', // Largura suficiente para duas colunas de bolinhas maiores
+    marginBottom: '45px', // Centraliza o container das bolinhas
   };
-  
 
+  // Estilo para o botão
+  const buttonStyle = {
+    cursor: 'pointer',
+    background: 'none',
+    border: 'none',
+    outline: 'none',
+    padding: '10px',
+    marginTop: '140px',
+    marginBottom: '0px',
+  };
   return (
-    <div>
-      <h2>Pontuação: {score}</h2>
-      <button onClick={toggleTheme} style={{
-          cursor: 'pointer',
-          background: 'none',
-          border: 'none',
-          outline: 'none',
-          padding: '10px',
-          position: 'relative', // Para que o ícone possa ser posicionado sobre o texto
-        }}>
+    <div style={commonCenterStyle}>
+      {/* Logos que mudam com o tema */}
+      {darkTheme ? (
+        <img src="/img/logo_escura.svg" alt="Logo Escuro" style={logoStyle} />
+      ) : (
+        <img src="/img/logo_claro.svg" alt="Logo Claro" style={logoStyle} />
+      )}
+
+      {/* Botão para alternar o tema */}
+      <button onClick={toggleTheme} style={buttonStyle}>
         {darkTheme ? (
-          // Este é o ícone ou imagem para o tema escuro
           <img src="/img/icone_claro.png" alt="Tema Claro" />
         ) : (
-          // Este é o ícone ou imagem para o tema claro
           <img src="/img/icone_escuro.png" alt="Tema Escuro" />
         )}
-
       </button>
-      <div style={containerStyle}> {/* Aplica o estilo do contêiner aqui */}
+
+      {/* Pontuação */}
+      <h2 style={{ color: darkTheme ? 'white' : 'black', marginTop: '35px', marginBottom: '35 px', fontSize: '34px', textAlign:'center'}}>
+        Pontuação: <br></br>{score}
+      </h2>
+
+      {/* Contêiner das bolinhas */}
+      <div style={containerStyle}>
         {colors.map((color, index) => (
           <Ball
             key={index}
@@ -153,6 +170,9 @@ const Game = () => {
           />
         ))}
       </div>
+      <h3 style={{ color: darkTheme ? 'white' : 'black', position: 'absolute', bottom:0, textAlign:'center', fontSize: '17px', marginLeft:'40px', marginRight:'40px'}}>
+        Jogo criado por Arthur Palmeira em colobaração com o ChatGPT 4™
+      </h3>
     </div>
   );
 };
