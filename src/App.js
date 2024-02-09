@@ -9,10 +9,10 @@ function App() {
     <Router>
       <Routes>
         {/* Rota para a página principal */}
-        <Route path="/" element={<PaginaPrincipal />} />
+        <Route path="/pagina-principal" element={<PaginaPrincipal />} />
 
         {/* Rota para a testes */}
-        <Route path="/testes" element={<Game />} />
+        <Route path="/" element={<Game />} />
         
       </Routes>
     </Router>

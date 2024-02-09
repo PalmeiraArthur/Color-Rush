@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../testes/testes.module.css'
 
 // Lista de cores base para alternar entre as rodadas
-const baseColors = ['#00ff00', '#ff0000', '#0000ff', '#ff00ff', '#00ffff'];
+const baseColors = ['#14B914', '#9D1717', '#00009E', '#FF008A', '#56B6DF', '#F17922', '#730AB2'];
 
 
 const adjustColor = (color, level) => {
@@ -11,7 +12,7 @@ const adjustColor = (color, level) => {
     const cycle = Math.floor((level - 1) / baseColors.length);
   
     // Inicia com um fator de escurecimento maior para garantir um tom significativamente mais escuro no começo
-    const darkenFactorStart = 140; // Valor inicial mais alto para um contraste mais forte
+    const darkenFactorStart = 100; // Valor inicial mais alto para um contraste mais forte
     const decrementPerCycle = 40; // Quanto o fator de escurecimento diminui a cada ciclo completo de cores
   
     // Calcula o fator de escurecimento atual com base no ciclo, garantindo um mínimo de escurecimento
@@ -54,7 +55,6 @@ const Ball = ({ color, onClick, isDifferent }) => {
         fontWeight: 'bold',
       }}
     >
-      {isDifferent ? 'C' : ''}
     </div>
   );
 };
@@ -65,6 +65,7 @@ const Game = () => {
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
   const [darkTheme, setDarkTheme] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
   // Gera as bolinhas com base no nível
   useEffect(() => {
@@ -81,6 +82,8 @@ const Game = () => {
     document.body.style.color = darkTheme ? 'white' : 'black';
   }, [darkTheme]);
 
+  
+
   const toggleTheme = () => {
     setDarkTheme(!darkTheme);
   };
@@ -91,8 +94,14 @@ const Game = () => {
       setScore(score + 1);
       setLevel(level + 1);
     } else {
-      alert('Errado! Tente novamente.');
+      setGameOver(true);
     }
+  };
+
+  const restartGame = () => {
+    setScore(0);
+    setLevel(1);
+    setGameOver(false);
   };
 
   // Estilo centralizado para todos os elementos
@@ -136,43 +145,76 @@ const Game = () => {
     marginTop: '140px',
     marginBottom: '0px',
   };
-  return (
-    <div style={commonCenterStyle}>
-      {/* Logos que mudam com o tema */}
-      {darkTheme ? (
-        <img src="/img/logo_escura.svg" alt="Logo Escuro" style={logoStyle} />
-      ) : (
-        <img src="/img/logo_claro.svg" alt="Logo Claro" style={logoStyle} />
-      )}
 
-      {/* Botão para alternar o tema */}
-      <button onClick={toggleTheme} style={buttonStyle}>
-        {darkTheme ? (
-          <img src="/img/icone_claro.png" alt="Tema Claro" />
-        ) : (
-          <img src="/img/icone_escuro.png" alt="Tema Escuro" />
-        )}
-      </button>
+  const creditStyle = {
+    color: darkTheme ? 'white' : 'black',
+    position: 'absolute',
+    bottom: 10,
+    width: '100%',
+    textAlign: 'center',
+    fontSize: '17px',
+  };
 
-      {/* Pontuação */}
-      <h2 style={{ color: darkTheme ? 'white' : 'black', marginTop: '35px', marginBottom: '35 px', fontSize: '34px', textAlign:'center'}}>
-        Pontuação: <br></br>{score}
-      </h2>
 
-      {/* Contêiner das bolinhas */}
-      <div style={containerStyle}>
-        {colors.map((color, index) => (
-          <Ball
-            key={index}
-            color={color}
-            onClick={() => handleBallClick(index)}
-            isDifferent={index === correctIndex}
-          />
-        ))}
+  if (gameOver) {
+    // Tela de fim de jogo
+    return (
+      <div style={commonCenterStyle}>
+
+        <h1 className={styles.perdeu}>Você perdeu!</h1>        
+        <h3 style={{ color: darkTheme ? 'white' : 'black', marginTop: '20px', fontSize: '40px', textAlign: 'center', fontFamily:'Sansita'}}>Sua pontuação foi: <br></br>{score}</h3>
+        <button className={styles.botao} onClick={restartGame} >Recomeçar</button>
       </div>
-      <h3 style={{ color: darkTheme ? 'white' : 'black', position: 'absolute', bottom:0, textAlign:'center', fontSize: '17px', marginLeft:'40px', marginRight:'40px'}}>
-        Jogo criado por Arthur Palmeira em colobaração com o ChatGPT 4™
-      </h3>
+    );
+  }
+
+  const gameOverStyle = {
+    ...commonCenterStyle,
+    // Estilos adicionais caso necessário para a tela de fim de jogo
+  };
+ return (
+    <div style={commonCenterStyle}>
+      {/* Logo */}
+      <img src={darkTheme ? "/img/logo_escura.svg" : "/img/logo_claro.svg"} alt="Logo" style={logoStyle} />
+
+      {/* Créditos */}
+      <div style={creditStyle}>
+        <h3>
+        Jogo criado por Arthur Palmeira em colaboração com o ChatGPT 4™
+        </h3>
+      </div>
+
+      {/* Se o jogo terminou, mostrar tela de fim de jogo */}
+      {gameOver ? (
+        <div style={{ marginTop: '100px' }}> 
+          <button onClick={restartGame}>Recomeçar</button>
+        </div>
+      ) : (
+        // Se o jogo não terminou, mostrar elementos do jogo
+        <>
+          {/* Botão para alternar o tema */}
+          <button onClick={toggleTheme} style={buttonStyle}>
+            <img src={darkTheme ? "/img/icone_claro.png" : "/img/icone_escuro.png"} alt="Tema" />
+          </button>
+
+          {/* Pontuação */}
+          <h2 style={{ color: darkTheme ? 'white' : 'black', marginTop: '20px', fontSize: '34px', textAlign: 'center' }}>
+            Pontuação: {score}
+          </h2>
+
+          {/* Contêiner das bolinhas */}
+          <div style={containerStyle}>
+            {colors.map((color, index) => (
+              <Ball
+                key={index}
+                color={color}
+                onClick={() => handleBallClick(index)}
+                isDifferent={index === correctIndex}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

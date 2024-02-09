@@ -1,0 +1,44 @@
+.perdeu{
+    font-size: 60px;
+    background: linear-gradient(to right, rgb(255, 0, 214), rgb(255, 107, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    font-family: 'Sansita Swashed', cursive;
+}
+
+.pontos{
+    margin: 5px, 0px;
+    text-align: center;
+    font-size: 40px;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Sansita Swashed', cursive;
+
+}
+
+.botao{
+    font-family: 'Sansita Swashed';
+    font-size: 40px;
+    color: #fff;
+    background: linear-gradient(90deg, #ff00d6 0%, #ff6b00 100%);
+    padding: 10px 30px;
+    margin-top: 210px;
+    border: none;
+    box-shadow: none;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+}
+
+.score{
+    color: #ff00d6;
+    background: linear-gradient(90deg, #ff00d6 0%, #ff6b00 100%);
+}
