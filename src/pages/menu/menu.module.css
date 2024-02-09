@@ -1,0 +1,118 @@
+.header{
+    text-align: center;
+}
+
+.textos{
+    margin: 20px 10px 0px 10px;
+    text-align: center;
+}
+
+.textos h1{
+    margin: 0px;
+}
+
+.texto1{
+    font-family: 'Sansita';
+}
+.texto2 {
+    font-size: 24px;
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center;
+    background: linear-gradient(to right, rgb(255, 0, 214), rgb(255, 107, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.botaoTema{
+    margin: 50px 0px 30px 0px;
+}
+
+.explicação h3{
+    margin: 0px;
+}
+
+.explicação .como{
+    font-size: 22px;
+}
+
+.explicação .identifique{
+    margin: 0px 20px;
+}
+
+.botoesJogo{
+    display: flex;
+    flex-direction: column; /* Faz com que os itens sejam organizados em coluna */
+    margin-top: 28px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.botaoFree{
+    display: flex;
+    flex-direction: column; /* Organiza os filhos em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Ajusta o espaçamento entre eles de forma equitativa */
+    text-align: center; /* Garante que o texto dentro dos <p> esteja centralizado */
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    color: #fff;
+    background: linear-gradient(90deg, rgb(255, 0, 214),  rgb(255, 107, 0));
+    padding: 0px 20px;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    cursor: pointer;  
+    width: 380px;
+    margin: 0px 25px 0px 25px;
+}
+
+.botaoFree .freemode{
+    font-family: 'sansita swashed';
+    font-size: 32px ;
+    margin: 10px 0px;
+}
+
+.botaoFree .joguelivre{
+    font-family: 'sansita';
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+
+.botaoRush{
+    display: flex;
+    flex-direction: column; /* Organiza os filhos em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Ajusta o espaçamento entre eles de forma equitativa */
+    text-align: center; /* Garante que o texto dentro dos <p> esteja centralizado */
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    color: #ffffff;
+    background-color: #5d5f68;
+    padding: 0px 20px;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    cursor: pointer;
+    height: auto;
+    width: 380px;
+    margin: 30px 15px 0px 15px;
+}
+
+
+.botaoRush .rushmode{
+    font-family: 'sansita swashed';
+    font-size: 32px ;
+    margin: 10px 0px;
+}
+
+.botaoRush .joguetimer{
+    font-family: 'sansita';
+    font-size: 20px;
+    margin: 10px 0px;
+}

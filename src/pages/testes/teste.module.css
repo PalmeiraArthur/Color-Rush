@@ -1,0 +1,63 @@
+.perdeu{
+    font-size: 60px;
+    background: linear-gradient(to right, rgb(255, 0, 214), rgb(255, 107, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    font-family: 'Sansita Swashed', cursive;
+}
+
+.pontosJogo{
+    font-size: 34px;
+    font-family: 'Sansita';
+}
+
+.pontuacao{
+    text-align: center;
+    font-size: 40px;
+    font-family:  'Sansita';
+}
+
+.pontos{
+    margin: 5px, 0px;
+    text-align: center;
+    font-size: 40px;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Sansita Swashed', cursive;
+
+}
+
+.botao{
+    font-family: 'Sansita Swashed';
+    font-size: 40px;
+    color: #fff;
+    background: linear-gradient(90deg, #ff00d6 0%, #ff6b00 100%);
+    padding: 10px 30px;
+    margin-top: 210px;
+    border: none;
+    box-shadow: none;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+}
+
+.logos{
+    margin-top: 20px;
+}
+
+.creditos{
+    margin: 0px;
+    position: 'absolute';
+    bottom: '10000px';
+    text-align: 'center';
+    font-size: '1700px';
+}
