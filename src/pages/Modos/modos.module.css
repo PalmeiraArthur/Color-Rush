@@ -15,27 +15,6 @@
     text-align: center;
 }
 
-.textos h1{
-    margin: 0px;
-}
-
-.texto1{
-    font-size: 36px;
-    font-weight: 800;
-    margin: 0px;
-}
-.texto2 {
-    font-size: 32px;
-    font-family: "Sansita", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-    background: linear-gradient(to right, rgb(255, 0, 214), #FF6B00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0px;
-}
-
 .body{
     display: flex;
     flex-direction: column;
@@ -43,20 +22,6 @@
     justify-content: center;
 }
 
-.explicação h3{
-    margin: 0px;
-}
-
-.explicação .como{
-    font-size: 28px;
-    font-family: "Sansita", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-}
-
-.explicação .identifique{
-    font-size: 24px;
-}
 
 .jogar{
     display: flex;
@@ -86,18 +51,4 @@
 .footer h3{
     font-size: 28px;
     margin: 0px;
-}
-
-.botaoTema{
-    margin-top: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    
-}
-.botaoTema img{
-    width: auto;
-    height: 55px;
-
-
 }

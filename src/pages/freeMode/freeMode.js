@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styles from "../testes/teste.module.css"; // Certifique-se de que o caminho esteja correto
+import styles from "../freeMode/freeMode.module.css"; // Certifique-se de que o caminho esteja correto
+import { useTheme } from '../../ThemeContext';
+
 
 // Lista de cores base para alternar entre as rodadas
 
@@ -140,10 +142,6 @@ const FreeMode = () => {
 
     return (
       <div style={mainContainerStyle}>
-          <img className={styles.logos} src={darkTheme ? "/img/logo_escura.svg" : "/img/logo_claro.svg"} alt="Logo" />
-          <button onClick={toggleTheme} style={{ background: 'none', border: 'none', padding: 0, cursor:'pointer'}}>
-              <img src={themeIconSrc} alt="Toggle Theme" style={{ width: '60px', height: '60px', marginTop:"70px" }} />
-          </button>
           <h2 className={styles.pontosJogo} style={{ color: darkTheme ? 'white' : 'black' }}>Pontuação: {score}</h2>
           <div style={containerStyle}>
               {colors.map((color, index) => (
