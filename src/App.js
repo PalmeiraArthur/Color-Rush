@@ -5,7 +5,7 @@ import Menu from './pages/menu/menu';
 import FreeMode from './pages/freeMode/freeMode';
 import RushMode from './pages/rushMode/rushMode';
 import Game from './pages/testes/teste';
-import Modos from './pages/Modos/modos';
+import Modos from './pages/modos/modos';
 
 
 
