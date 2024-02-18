@@ -10,10 +10,8 @@
 .header{
     margin-bottom: 100px;
 }
-.textos{
-    margin: 20px 10px 0px 10px;
-    text-align: center;
-}
+
+
 
 .body{
     display: flex;
@@ -23,32 +21,80 @@
 }
 
 
-.jogar{
+.botoesJogo{
+
     display: flex;
+    flex-direction: column; /* Faz com que os itens sejam organizados em coluna */
+    margin-top: 28px;
+    display: flex;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    border: none;
-    width: 200px;
-    height: 100px;
-    border-radius: 10px;
+}
+
+.botaoFree{
+    display: flex;
+    flex-direction: column; /* Organiza os filhos em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Ajusta o espaçamento entre eles de forma equitativa */
+    text-align: center; /* Garante que o texto dentro dos <p> esteja centralizado */
+    color: #fff;
     background: linear-gradient(90deg, rgb(255, 0, 214),  rgb(255, 107, 0));
-    font-size: 40px;
+    padding: 0px 20px;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    cursor: pointer;  
+    width: 380px;
+    margin: 0px 25px 0px 25px;
+}
+
+.botaoFree .freemode{
     font-family: "Sansita", sans-serif;
     font-weight: 900;
     font-style: normal;
-    color: white;
+    font-size: 32px ;
+    margin: 10px 0px;
+}
+
+.botaoFree .joguelivre{
+    font-family: 'sansita';
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+
+.botaoRush{
+    display: flex;
+    flex-direction: column; /* Organiza os filhos em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Ajusta o espaçamento entre eles de forma equitativa */
+    text-align: center; /* Garante que o texto dentro dos <p> esteja centralizado */
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    color: #ffffff;
+    background-color: #5d5f68;
+    padding: 0px 20px;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
     cursor: pointer;
-    margin-top: 50px;
+    height: auto;
+    width: 380px;
+    margin: 30px 15px 0px 15px;
 }
 
 
-
-.footer{
-    margin-top: 50px;
+.botaoRush .rushmode{
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 32px ;
+    margin: 10px 0px;
 }
 
-.footer h3{
-    font-size: 28px;
-    margin: 0px;
+.botaoRush .joguetimer{
+    font-family: 'sansita';
+    font-size: 20px;
+    margin: 10px 0px;
 }

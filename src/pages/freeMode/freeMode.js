@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styles from "../freeMode/freeMode.module.css"; // Certifique-se de que o caminho esteja correto
-import { useTheme } from '../../ThemeContext';
+import styles from "../freeMode/freeMode.module.css";
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../../ThemeContext'; // Ensure this path is correct
 
-
-// Lista de cores base para alternar entre as rodadas
-
-
-
-const baseColors = ['#56E556', '#9D1717', '#375BDA', '#FF008A', '#56B6DF', '#F17922', '#730AB2', '#D3A93D'];
+const baseColors = ['#56E556', '#9D1717', '#375BDA', '#FF008A', '#56B6DF', '#F17922', '#914AC9', '#D3A93D'];
 
 const adjustColor = (color, level) => {
     let [r, g, b] = color.match(/\w\w/g).map(c => parseInt(c, 16));
@@ -53,52 +49,36 @@ const FreeMode = () => {
     const [correctIndex, setCorrectIndex] = useState(null);
     const [score, setScore] = useState(0);
     const [level, setLevel] = useState(1);
-    const [darkTheme, setDarkTheme] = useState(false);
     const [gameOver, setGameOver] = useState(false);
     const [cyclesCompleted, setCyclesCompleted] = useState(0);
-    const columns = Math.min(2 + cyclesCompleted, 4); // Limita a no máximo 4 colunas
-    const themeIconSrc = darkTheme ? "./img/icone_claro.png" : "./img/icone_escuro.png"; // Atualize os caminhos conforme necessário'
+    const navigate = useNavigate();
 
+    const goToMenu = () => {
+        navigate('/');
+    };
 
-    const mainContainerStyle = {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'space-between', // Isso ajuda a distribuir o espaço entre os itens
-      minHeight: '100vh', // Garante que o contêiner ocupe no mínimo a altura total da viewport
-      padding: '0px 0', // Adiciona um pouco de espaço no topo e no fundo
-  };
+    // Use the useTheme hook to access darkTheme and toggleTheme
+    const { darkTheme } = useTheme(); // Removed the local darkTheme state
 
+    const columns = Math.min(2 + cyclesCompleted, 4); // Keeps the logic for the number of columns
+
+    useEffect(() => {
+        const newCyclesCompleted = Math.floor((level - 1) / baseColors.length);
+        setCyclesCompleted(newCyclesCompleted);
+    }, [level]);
+
+    useEffect(() => {
+        const cyclesCompleted = Math.floor((level - 1) / baseColors.length);
+        const columns = Math.min(2 + cyclesCompleted, 4);
+        const numberOfColors = Math.min(columns * 3, 12);
+        const baseColorIndex = (level - 1) % baseColors.length;
+        const baseColor = baseColors[baseColorIndex];
+        const { colors, correctIndex } = generateColorsAndCorrectIndex(level, baseColor, numberOfColors);
+        setColors(colors);
+        setCorrectIndex(correctIndex);
+    }, [level]);
     
-
-    useEffect(() => {
-      const newCyclesCompleted = Math.floor((level - 1) / baseColors.length);
-      setCyclesCompleted(newCyclesCompleted);
-  }, [level]);
-  
-
-
-  useEffect(() => {
-    const cyclesCompleted = Math.floor((level - 1) / baseColors.length);
-    // Limita o número total de colunas a 4, começando com 2 colunas de 3 bolinhas cada
-    const columns = Math.min(2 + cyclesCompleted, 4);
-    // Calcula o número total de bolinhas baseado no número de colunas, mas limita a 12 bolinhas
-    const numberOfColors = Math.min(columns * 3, 12);
-    const baseColorIndex = (level - 1) % baseColors.length;
-    const baseColor = baseColors[baseColorIndex];
-    const { colors, correctIndex } = generateColorsAndCorrectIndex(level, baseColor, numberOfColors);
-    setColors(colors);
-    setCorrectIndex(correctIndex);
-}, [level]);
-  
-
-    useEffect(() => {
-        document.body.style.backgroundColor = darkTheme ? '#333' : 'white';
-        document.body.style.color = darkTheme ? 'white' : 'black';
-    }, [darkTheme]);
-
-    const toggleTheme = () => setDarkTheme(!darkTheme);
-
+    
     const handleBallClick = (index) => {
         if (index === correctIndex) {
             setScore(score + 1);
@@ -107,54 +87,71 @@ const FreeMode = () => {
             setGameOver(true);
         }
     };
-
+    
     const restartGame = () => {
         setScore(0);
         setLevel(1);
         setGameOver(false);
     };
-
-    const creditStyle = {
-        color: darkTheme ? 'white' : 'black',
-        textAlign: 'center',
-        fontSize: '17px',
-        width: '100%', // Faz com que ocupe a largura total do contêiner
+    
+    // Main container style adapted for centering
+    const mainContainerStyle = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center', // Adjusted for centering
+        
     };
-
-      const containerStyle = {
+    
+    const containerStyle = {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        maxWidth: `${columns * (82 + 20)}px`, // Ajuste baseado no número de colunas
-        margin: '20px 0', // Adiciona margem acima e abaixo para separação dos elementos
+        maxWidth: `${columns * (82 + 20)}px`,
+        margin: '20px 0',
     };
-
+    
+    const [bestScore, setBestScore] = useState(() => {
+        // Recupera a melhor pontuação do localStorage ou define como 0
+        const savedBestScore = localStorage.getItem('bestScore');
+        return savedBestScore ? parseInt(savedBestScore, 10) : 0;
+    });
+    useEffect(() => {
+        // Atualiza a melhor pontuação no localStorage sempre que a pontuação atual é maior
+        if (score > bestScore) {
+            setBestScore(score);
+            localStorage.setItem('bestScore', score.toString());
+        }
+    }, [score, bestScore]);
+    
     if (gameOver) {
         return (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+            <div style={mainContainerStyle}>
                 <h1 className={styles.perdeu}>Você perdeu!</h1>
                 <h3 className={styles.pontuacao} style={{ color: darkTheme ? 'white' : 'black' }}>Sua pontuação foi: <br></br>{score}</h3>
-                <button className={styles.botao} onClick={restartGame}>Recomeçar</button>
-
+                <button className={styles.botaoRestart} onClick={restartGame}>Recomeçar</button>
+                <button className={styles.botaoVoltar} onClick={goToMenu}>Voltar ao menu</button>
+                <div className={styles.melhorPontos}>
+                sua melhor pontuação foi: {bestScore}
+                </div>
             </div>
         );
     }
 
     return (
-      <div style={mainContainerStyle}>
-          <h2 className={styles.pontosJogo} style={{ color: darkTheme ? 'white' : 'black' }}>Pontuação: {score}</h2>
-          <div style={containerStyle}>
-              {colors.map((color, index) => (
-                  <Ball key={index} color={color} onClick={() => handleBallClick(index)} />
-              ))}
-          </div>
-          <div style={{...creditStyle, marginTop: '0px'}}> {/* Adiciona margem no topo para separar dos elementos acima */}
-              <h3> 
-                  Jogo criado por Arthur Palmeira em colaboração com o ChatGPT 4™
-              </h3>
-          </div>
-      </div>
-  );
+        <div style={mainContainerStyle}>
+            <div>
+                {darkTheme ? (<img src="./img/logo_branca.svg" alt="logo escura" />) : (<img src="./img/logo_preta.svg" alt="logo claro" />)}
+            </div>
+            <h2 className={styles.pontosJogo} style={{ color: darkTheme ? 'white' : 'black' }}>Pontuação: {score}</h2>
+            <div style={containerStyle}>
+                {colors.map((color, index) => (
+                    <Ball key={index} color={color} onClick={() => handleBallClick(index)} />
+                ))}
+            </div>
+            {/* Removed the theme toggle button since it's managed globally now */}
+        </div>
+    );
 };
 
 export default FreeMode;

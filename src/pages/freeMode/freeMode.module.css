@@ -1,11 +1,13 @@
 .perdeu{
+    font-family: "Sansita Swashed", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
     font-size: 60px;
     background: linear-gradient(to right, rgb(255, 0, 214), rgb(255, 107, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
-    font-family: 'Sansita Swashed', cursive;
 }
 
 .pontosJogo{
@@ -15,7 +17,7 @@
 
 .pontuacao{
     text-align: center;
-    font-size: 40px;
+    font-size: 34px;
     font-family:  'Sansita';
 }
 
@@ -31,13 +33,15 @@
 
 }
 
-.botao{
-    font-family: 'Sansita Swashed';
-    font-size: 40px;
+.botaoRestart{
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 32px;
     color: #fff;
-    background: linear-gradient(90deg, #ff00d6 0%, #ff6b00 100%);
+    background: linear-gradient(90deg, #ff00d6, #ff6b00);
     padding: 10px 30px;
-    margin-top: 210px;
+    margin-top: 0px;
     border: none;
     box-shadow: none;
     border-radius: 12px;
@@ -46,10 +50,30 @@
     align-items: center;
     text-align: center;
     cursor: pointer;
-    width: auto;
-    height: auto;
+    width: 240px;
+    height: 80px;
 }
 
+.botaoVoltar{
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 32px;
+    color: #fff;
+    background-color: #5d5f68;
+    padding: 10px 30px;
+    margin-top: 30px;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    width: 240px;
+    height: 80px;
+}
 .logos{
     margin-top: 20px;
 }
@@ -60,4 +84,15 @@
     bottom: '10000px';
     text-align: 'center';
     font-size: '1700px';
+}
+
+.melhorPontos{
+    margin: 50px 0px;
+    color: black;
+    background: linear-gradient(90deg, #ff00d6 0%, #ff6b00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 34px;
+    font-weight: 700;
 }
