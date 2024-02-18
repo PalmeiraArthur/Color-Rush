@@ -1,6 +1,6 @@
 # Color Rush: Desafie Seus Sentidos!
 
-![Logo do Jogo](public/img/logo_branca.svg)
+![Logo do Jogo](public/img/logo_completa_branca.svg)
 
 
 ## Sobre o Projeto
