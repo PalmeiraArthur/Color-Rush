@@ -22,7 +22,8 @@ function Menu() {
                         <img src="./img/logo_preta.svg" alt="logo claro" />
                     )}
                 </div>
-                <h1 className={styles.texto2}>um jogo de percepção e agilidade!</h1>
+                <h1 className={styles.texto2}>desafie seus sentidos!</h1>
+                <h1 className={styles.texto3}>um jogo de percepção e agilidade!</h1>
             </div>
             <div className={styles.body}>
                 <div className={styles.explicação}>
