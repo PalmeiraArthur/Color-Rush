@@ -9,8 +9,7 @@ Color Rush é um jogo interativo baseado na web, projetado para testar e melhora
 
 ## Características
 
-- **Modos de Jogo Variados**:
--  Escolha entre o **Free Mode**, para uma experiência relaxante sem pressão de tempo, e o **Rush Mode**, onde cada acerto reinicia um timer de 5 segundos, adicionando uma camada de intensidade e emoção à jogabilidade.
+- **Modos de Jogo Variados**: Escolha entre o **Free Mode**, para uma experiência relaxante sem pressão de tempo, e o **Rush Mode**, onde cada acerto reinicia um timer de 5 segundos, adicionando uma camada de intensidade e emoção à jogabilidade.
 - **Tema Dinâmico**: Alterne entre temas claros e escuros para uma experiência personalizada, garantindo conforto visual em qualquer ambiente.
 - **Desafio Progressivo**: À medida que avança nos níveis, o jogo se torna mais desafiador, testando seus limites e melhorando suas habilidades.
 - **Design Intuitivo**: Uma interface limpa e uma experiência de usuário fluida garantem que você possa se concentrar totalmente no jogo.
