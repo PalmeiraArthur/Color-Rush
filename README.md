@@ -33,8 +33,7 @@ Para experimentar o Color Rush acesso o link do site hospedado no vercel **link 
 
 ## Contribua
 
-Contribuições são sempre bem-vindas! Se você tem uma sugestão para melhorar o jogo, sinta-se à vontade para fazer um fork do repositório e enviar um pull request com suas melhorias. Você também pode abrir uma issue para discutir suas ideias com outros contribuidores.
-
+Contribuições são sempre bem-vindas! Se você tem uma sugestão para melhorar o jogo, sinta-se à vontade para segurir mudanças e melhorias para o jogo!
 ## Licença
 
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
