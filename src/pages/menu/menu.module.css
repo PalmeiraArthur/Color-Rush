@@ -98,6 +98,119 @@
 .botaoTema img{
     width: auto;
     height: 55px;
+}
 
+@media (max-width: 768px) {
+    .geral {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Distribui o espaço entre o conteúdo principal e o footer */
+        align-items: center;
+        text-align: center;
+      }
+      
+    
+    .header{
+        margin-top: 10px;
+        margin-bottom: 100px;
+    }
+    .textos{
+        margin: 20px 10px 0px 10px;
+        text-align: center;
+    }
+    
+    .textos h1{
+        margin: 0px;
+    }
+    
+    .texto1{
+        font-size: 24px;
+        font-weight: 800;
+        margin: 0px;
+    }
+    .texto2 {
+        font-size: 28px;
+        font-family: "Sansita", sans-serif;
+        font-weight: 700;
+        font-style: italic;
+        background: linear-gradient(to right, rgb(255, 0, 214), #FF6B00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0px;
+    }
+
+    .texto3{
+        font-size: 2px;
+        font-weight: 800;
+        margin-top: 4px;
+        opacity: 0;
+    }
+    
+    .body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .explicação h3{
+        margin: 30px 0px 0px 0px;
+    }
+    
+    .explicação .como{
+        font-size: 20px;
+        font-family: "Sansita", sans-serif;
+        font-weight: 800;
+        font-style: normal;
+    }
+    
+    .explicação .identifique{
+        font-size: 18px;
+        margin: 0px 20px;
+    }
+    
+    .jogar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: none;
+        width: 200px;
+        height: 80px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, rgb(255, 0, 214),  rgb(255, 107, 0));
+        font-size: 40px;
+        font-family: "Sansita", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    
+    
+    
+    .footer{
+        margin-top: 40px;
+    }
+    
+    .footer h3{
+        font-size: 22px;
+        margin: 0px;
+    }
+    
+    .botaoTema{
+        margin-top: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        
+    }
+    .botaoTema img{
+        width: auto;
+        height: 55px;
+    }
 
 }

@@ -26,10 +26,7 @@ function Menu() {
                 <h1 className={styles.texto3}>um jogo de percepção e agilidade!</h1>
             </div>
             <div className={styles.body}>
-                <div className={styles.explicação}>
-                    <h3 className={styles.como}>Como jogar?</h3>
-                    <h3 className={styles.identifique}>Identifique a bolinha colorida que tem um tom diferente das outras bolinhas</h3>
-                </div>
+
                 <button className={styles.jogar} onClick={goToModos}>
                     <p>Jogar</p>
                 </button>

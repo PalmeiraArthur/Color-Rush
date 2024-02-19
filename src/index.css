@@ -11,6 +11,21 @@ footer{
   text-align: center;
   font-weight: 700;
 }
+
+@media (max-width: 768px) {
+  footer{
+    position: fixed; /* ou absolute, dependendo do seu caso de uso */
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-weight: 700;
+    margin: 0px;
+    min-width: 250px;
+  }
+
+}
+
 /* No seu arquivo CSS global */
 .body-dark-theme {
   background-color: #333;
