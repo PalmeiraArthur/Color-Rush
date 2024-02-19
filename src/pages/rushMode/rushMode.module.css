@@ -1,3 +1,113 @@
 .teste{
     text-align: center;
+}.perdeu{
+    font-family: "Sansita Swashed", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 60px;
+    background: linear-gradient(to right, rgb(255, 0, 214), rgb(255, 107, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.conteudoJogo{
+    text-align: center;
+    margin-top: 60px ;
+}
+
+.pontosJogo{
+    font-size: 34px;
+    font-family: 'Sansita';
+}
+
+.pontuacao{
+    text-align: center;
+    font-size: 34px;
+    font-family:  'Sansita';
+}
+
+.pontos{
+    margin: 5px, 0px;
+    text-align: center;
+    font-size: 40px;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Sansita Swashed', cursive;
+
+}
+
+.botaoRestart{
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 32px;
+    color: #fff;
+    background: linear-gradient(90deg, #ff00d6, #ff6b00);
+    padding: 10px 30px;
+    margin-top: 0px;
+    border: none;
+    box-shadow: none;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    width: 240px;
+    height: 80px;
+}
+
+.botaoVoltar{
+    font-family: "Sansita", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 32px;
+    color: #fff;
+    background-color: #5d5f68;
+    padding: 10px 30px;
+    margin-top: 30px;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    width: 240px;
+    height: 80px;
+}
+.logos{
+    margin-top: 20px;
+}
+
+.creditos{
+    margin: 0px;
+    position: 'absolute';
+    bottom: '10000px';
+    text-align: 'center';
+    font-size: '1700px';
+}
+
+.melhorPontos{
+    margin: 50px 0px;
+    color: black;
+    background: linear-gradient(90deg, #ff00d6 0%, #ff6b00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.timer{
+    font-size: 50px;
+    background: linear-gradient(90deg, #ff00d6 0%, #ff6b00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }

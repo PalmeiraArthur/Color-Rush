@@ -9,7 +9,7 @@ const adjustColor = (color, level) => {
     let [r, g, b] = color.match(/\w\w/g).map(c => parseInt(c, 16));
     const cycle = Math.floor((level - 1) / baseColors.length);
     const darkenFactorStart = 30;
-    const decrementPerCycle = 90;
+    const decrementPerCycle = 100;
     const darkenFactor = Math.max(darkenFactorStart - cycle * decrementPerCycle, 20);
     r = Math.max(r - darkenFactor, 0);
     g = Math.max(g - darkenFactor, 0);
@@ -108,7 +108,7 @@ const FreeMode = () => {
         flexWrap: 'wrap',
         justifyContent: 'center',
         maxWidth: `${columns * (82 + 20)}px`,
-        margin: '20px 0',
+        margin: '0px 0',
     };
     
     const [bestScore, setBestScore] = useState(() => {
@@ -132,7 +132,7 @@ const FreeMode = () => {
                 <button className={styles.botaoRestart} onClick={restartGame}>Recomeçar</button>
                 <button className={styles.botaoVoltar} onClick={goToMenu}>Voltar ao menu</button>
                 <div className={styles.melhorPontos}>
-                sua melhor pontuação foi: {bestScore}
+                Melhor pontuação no Free Mode: {bestScore}
                 </div>
             </div>
         );
@@ -143,12 +143,15 @@ const FreeMode = () => {
             <div>
                 {darkTheme ? (<img src="./img/logo_branca.svg" alt="logo escura" />) : (<img src="./img/logo_preta.svg" alt="logo claro" />)}
             </div>
+        <div className={styles.conteudoJogo}>
             <h2 className={styles.pontosJogo} style={{ color: darkTheme ? 'white' : 'black' }}>Pontuação: {score}</h2>
             <div style={containerStyle}>
                 {colors.map((color, index) => (
                     <Ball key={index} color={color} onClick={() => handleBallClick(index)} />
                 ))}
             </div>
+        </div>    
+            
             {/* Removed the theme toggle button since it's managed globally now */}
         </div>
     );

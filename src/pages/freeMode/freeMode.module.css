@@ -10,6 +10,11 @@
     background-clip: text;
 }
 
+.conteudoJogo{
+    text-align: center;
+    margin-top: 60px ;
+}
+
 .pontosJogo{
     font-size: 34px;
     font-family: 'Sansita';
