@@ -33,6 +33,8 @@ function Modos(){
 
 
             <div className={styles.body}>
+                <h1> Como jogar?</h1>
+                <h2>identifique a bolinha que tem um tom diferente das outras bolinhas</h2>
                 <h1>escolha o modo de jogo:</h1>
 
 
