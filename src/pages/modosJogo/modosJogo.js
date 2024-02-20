@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../modos/modos.module.css';
+import styles from '../modosJogo/modosJogo.module.css';
 import { useNavigate } from 'react-router-dom'; // Importe useNavigate
 import { useTheme } from '../../ThemeContext';
 
